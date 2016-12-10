@@ -1,0 +1,25 @@
+$def with(form,id)
+<header>
+    <div class="contenedor">
+        <h1 class="icon-flash">CFE</h1>
+        <input type="checkbox" id="menu-bar">
+        <label class="icon-menu" for="menu-bar"></label>
+        <nav class="menu" >
+            <a href="/cfe_data">¿Donde Pagar?</a>
+            <a href="/historial_pagos">Historial de Pagos</a>
+            <a href="/">Cerrar sesion</a>
+        </nav>
+    </div>
+</header>
+<div class="contenedor">
+    <form name="main" method="post" class="form">
+        <div class="form-group">
+            $if not form.valid: <p class="error">Resultados</p>
+            $:form.render_css()
+        </div>
+        <input class="btn btn-success" type="submit" value="Guardar" id="boton"/>
+    </form>
+    <form action="delete?id=$id" method="post" class="form">
+        <input class="btn btn-success" type="submit" value="Eliminar Registro"/>
+    </form>
+</div>

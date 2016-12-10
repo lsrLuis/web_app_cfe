@@ -1,0 +1,12 @@
+$def with(form)
+<section id="info">
+<div class="contenedor">
+    <form name="main" method="post" class="form-inline">
+        <div class="form-group">
+            $if not form.valid: <p class="error">Resultados</p>
+            $:form.render_css()
+        </div>
+        <input class="btn btn-success" type="submit" value="Entrar" id="boton"/>
+    </form>
+</div>
+</section>

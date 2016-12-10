@@ -1,0 +1,35 @@
+$def with(form, city)
+<header>
+    <div class="contenedor">
+        <h1 class="icon-flash">CFE</h1>
+        <input type="checkbox" id="menu-bar">
+        <label class="icon-menu" for="menu-bar"></label>
+        <nav class="menu" >
+            <a href="/cfe_data">¿Donde Pagar?</a>
+            <a href="/historial_pagos">Historial de Pagos</a>
+            <a href="/">Cerrar sesion</a>
+        </nav>
+    </div>
+</header>
+<section id="bienvenidos">
+    <div class="contenedor">
+        <h2>¿Donde Pagar?</h2>
+        <P>Aqui podras consultar la ubicacion de los cfematicos de todo el pais.</P>
+    </div>
+</section>
+<div class="contenedor">
+    <form name="main" method="post" class="form">
+        <div class="form-group">
+            $if not form.valid: <p class="error">Resultados</p>
+            $:form.render_css()
+        </div>
+        <input class="btn btn-success" type="submit" value="Buscar" id="boton"/>
+    </form>
+    $if len(city) > 0:
+        <ol id="lista2">
+            $for row in city:
+                <li><a href="cfe_data/cfematicos?city=$row">$row</a></li>
+        </ol>
+</div>
+
+

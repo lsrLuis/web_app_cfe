@@ -1,0 +1,43 @@
+$def with(results)
+<link rel="stylesheet" href="../static/boostrap/css/bootstrap.css">
+<header>
+    <div class="contenedor">
+        <h1 class="icon-flash">CFE</h1>
+        <input type="checkbox" id="menu-bar">
+        <label class="icon-menu" for="menu-bar"></label>
+        <nav class="menu" >
+            <a href="/cfe_data">¿Donde Pagar?</a>
+            <a href="/historial_pagos">Historial de Pagos</a>
+            <a href="/">Cerrar sesion</a>
+        </nav>
+    </div>
+</header>
+<div class="contenedor">
+    <div class="contenedor">
+        <input class="btn btn-success" type="text" value="Historial de pagos"/>
+        <a href="/historial_pagos/new">Nuevo registro</a>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <tr class="active info">
+                    <th>DIRECCION</th>
+                    <th>NUMERO DE MEDIDOR</th>
+                    <th>LECTURA ACTUAL</th>
+                    <th>PERIODO DE CONSUMO</th>
+                    <th>FECHA DE PAGO</th>
+                    <th>TOTAL DEL PAGO</th>
+                    <th>EDITAR</th>
+                </tr>
+                $for row in results:
+                    <tr class="active">
+                        <td>$row.direccion </td>
+                        <td>$row.num_medidor </td>
+                        <td>$row.lec_actual </td>
+                        <td>$row.periodo_consumo </td>
+                        <td>$row.fecha_pago</td>
+                        <td>$row.total_pago</td>
+                        <td><a href="/historial_pagos/edit?id=$row.id_pago">edit</a></td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+</div>
